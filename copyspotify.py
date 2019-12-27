@@ -24,7 +24,7 @@ if not (len(sys.argv) == 1 or len(sys.argv) == 3):
     print("Usage: %s username_FROM username_TO\nOR\n%s" % (sys.argv[0], sys.argv[0]))
     sys.exit()
 
-if len(sys.argv) == 0:
+if len(sys.argv) == 1:
     print("Enter email or username for the account we want to copy FROM: ", end="")
     fromUser = input()
 else:
@@ -39,7 +39,7 @@ if not fromToken:
     print("Couldn't get token")
     sys.exit()
 
-if len(sys.argv) == 0:
+if len(sys.argv) == 1:
     print("Enter email or username for the account we want to copy TO: ", end="")
     toUser = input()
 else:
