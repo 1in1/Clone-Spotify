@@ -10,11 +10,14 @@
 
 
 import sys
-import spotipy
-import spotipy.util as util
+#import spotipy
+#import spotipy.util as util
+import apiclient as spotipy
+import util as util
 
 clientID = '***REMOVED***'
 clientSecret = '***REMOVED***'
+PORTNO = 8070
 
 def loadByOffset(methodIn, n):
     result = methodIn(n, 0)
@@ -93,7 +96,7 @@ fromToken = util.prompt_for_user_token(fromUser,
             'user-library-read user-follow-read playlist-read-private playlist-read-collaborative',
             clientID,
             clientSecret,
-            'http://localhost'
+            'http://localhost:%d' % PORTNO
             )
 if not fromToken:
     print("Couldn't get token")
@@ -108,7 +111,7 @@ toToken = util.prompt_for_user_token(toUser,
             'user-library-modify user-follow-modify playlist-modify-private playlist-modify-public',
             clientID,
             clientSecret,
-            'http://localhost'
+            'http://localhost:%d' % PORTNO
             )
 if not toToken:
     print("Couldn't get token")
@@ -123,9 +126,9 @@ newsp = spotipy.Spotify(toToken)
 
 print("Migrating liked tracks...")
 copyData(mainsp.current_user_saved_tracks, newsp.current_user_saved_tracks_add, 
-    #Uncomment to sort by date added. Think going without is correct behaviour
-    #lambda items: list(map(lambda x: x['track']['id'], sorted(items, key=lambda k: k['added_at']))),
-    lambda items: list(map(lambda x: x['track']['id'], items)),
+    #(Un)comment to sort by date added/don't sort. Think this one is correct behaviour
+    lambda items: list(map(lambda x: x['track']['id'], sorted(items, key=lambda k: k['added_at']))),
+    #lambda items: list(map(lambda x: x['track']['id'], items)),
     50)
 print("Migrating saved albums...")
 copyData(mainsp.current_user_saved_albums, newsp.current_user_saved_albums_add, 

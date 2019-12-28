@@ -1,2 +1,7 @@
 .cache*
+.test*
+test*
 __pycache__/
+spotipy-master/
+*/__pycache__/
+*/.cache*
