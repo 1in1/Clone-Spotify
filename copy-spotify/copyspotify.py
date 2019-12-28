@@ -88,8 +88,7 @@ if not (len(sys.argv) == 1 or len(sys.argv) == 3):
     sys.exit()
 
 if len(sys.argv) == 1:
-    print("Enter email or username for the account we want to copy FROM: ", end="")
-    fromUser = input()
+    fromUser = input("Enter email or username for the account we want to copy FROM: ")
 else:
     fromUser = sys.argv[1]
 fromToken = util.prompt_for_user_token(fromUser,
@@ -103,8 +102,7 @@ if not fromToken:
     sys.exit()
 
 if len(sys.argv) == 1:
-    print("Enter email or username for the account we want to copy TO: ", end="")
-    toUser = input()
+    toUser = input("Enter email or username for the account we want to copy TO: ")
 else:
     toUser = sys.argv[2]
 toToken = util.prompt_for_user_token(toUser,
