@@ -39,7 +39,6 @@ def prompt_for_user_token(username, scope=None, client_id = None,
          - cache_path - path to location to save tokens
 
     '''
-    print("we in the modded one :) ")
 
     if not client_id:
         client_id = os.getenv('SPOTIPY_CLIENT_ID')
