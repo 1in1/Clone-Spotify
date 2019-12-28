@@ -11,7 +11,15 @@ Built with https://github.com/plamere/spotipy, a python wrapper for the Spotify 
 
 ## Installing
 
-**You should just be able to download the folder and run copyspotify.py** This requires and ships with a very modified version version of spotipy, so there should be no further installation needed. It should also ignore other installations of spotipy (current `pip` version is out of date, for example). Recent versions of spotipy also require `six` be installed, so the file is included here.
+<s>**You should just be able to download the folder and run copyspotify.py**</s> **You need requests installed to be able to run this.** If you have pip installed, this is as simple as 
+```bash
+pip install requests
+```
+Then you can run it from the directory with 
+```bash
+python .\copyspotify.py
+```
+This requires and ships with a very modified version version of spotipy, so there should be no further installation needed. It should also ignore other installations of spotipy (current `pip` version is out of date, for example). Recent versions of spotipy also require `six` be installed, so the file is included here.
 
 ## To run
 
