@@ -1,0 +1,4 @@
+need to do
+pip install six
+pip install spotipy
+then get the most recent client.py from gh
